@@ -71,7 +71,7 @@ const readInput = async( message ) => {
             message,
             validate ( value ) {
                 if( value.length === 0 ){
-                    return 'PLease insert a value';
+                    return 'Please insert a value';
                 }
                 return true;
             }
@@ -80,9 +80,7 @@ const readInput = async( message ) => {
     ];
 
     const  { desc } = await inquirer.prompt(question);
-    return describe(' ', () => {
-        
-    })
+    return desc
     
 }
 

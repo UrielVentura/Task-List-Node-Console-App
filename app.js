@@ -3,13 +3,10 @@ const {
     pause,
     readInput
 } = require('./helpers/inquirer');
-const Tasks = require('./models/Task')
+const { saveDB } = require('./helpers/saveFile');
+const Tasks = require('./models/Tasks')
 
 require('colors')
-
-
-
-console.clear();
 
 
 const main = async() =>{
@@ -23,17 +20,17 @@ const main = async() =>{
 
         switch (opt) {
             case '1':
-                const desc = await readInput()
+                const desc = await readInput('Description:')
+                tasks.createTask( desc )
                 
             break;
 
             case '2':
-                console.log( tasks._list)
+                console.log( tasks.listsArr)
             break;
         }
 
-
-        console.log({ opt }); 
+        saveDB(tasks.listsArr)
 
         await pause();
 
