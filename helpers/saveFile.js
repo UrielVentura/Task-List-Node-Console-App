@@ -12,7 +12,11 @@ const readDB = () =>{
     }
 
     const info = fs.writeFileSync(file, {encoding: 'utf-8'});
-    console.log(info);
+    const data = JSON.parse ( info );
+
+    return data;
+
+
 }
 
 module.exports = {
